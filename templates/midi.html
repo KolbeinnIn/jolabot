@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div id="countdown" class="{% if not timer %}d-none{% endif %}">
+        <div class="text-center text-light">
+            <p>Þú færð að vita hver fær þennan pakka á aðfangadag klukkan 18:00</p>
+            <p>Það er eftir:</p>
+        </div>
+        <div class="flipper"
+             data-datetime="2020-12-24 18:00:00"
+             data-template="dd|HH|ii|ss"
+             data-labels="Daga|Klukkustundir|Mínútur|Sekúndur"
+             data-reverse="true"
+             id="myFlipper">
+        </div>
+    </div>
+
+    <div id="tilfra" class="{% if timer %}d-none{% endif %}">
+        <h2>Til: {{ til }}</h2>
+        {% if a %}
+        <h2>
+            Frá:
+            <ul id="fra">
+                <li>
+                    {{ f.0 }}
+                    <br>
+                    {{ f.1 }}
+                </li>
+            </ul>
+        </h2>
+        {% else %}
+        <h2>Frá: {{ fra }}</h2>
+        {% endif %}
+    </div>
+
+{% endblock %}
+{% block scripts %}
+    {% if timer %}
+        <script src="{% static 'flipper.js' %}"></script>
+        <script>
+            $(function(){
+                $('#myFlipper').flipper('');
+            });
+        </script>
+    {% endif %}
+{% endblock%}

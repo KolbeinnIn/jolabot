@@ -1,0 +1,15 @@
+#main{
+    color: white;
+    background-image: url("back.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#msg, #main{
+    text-shadow: black 1px 1px 3px;
+}
+
+#fra{
+    list-style-type: none;
+}
+

@@ -28,7 +28,7 @@ SECRET_KEY = 'lws&p)sl-&ghgt&4)e@okit+op=2ghc9yt*1!%&0zu-ipsf8&)'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ["https://jolabot.herokuapp.com/", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 

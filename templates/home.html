@@ -38,16 +38,16 @@
             return false;
         };
 
-        $("#Forwards").bind("touchstart", function(e){e.preventDefault();sendCommand("forwards", 1)});
-        $("#Forwards").bind("touchend", function(e){e.preventDefault();sendCommand("forwards", 0)});
+        $("#Forwards").bind("touchstart mousedown", function(e){e.preventDefault();sendCommand("forwards", 1)});
+        $("#Forwards").bind("touchend mouseup", function(e){e.preventDefault();sendCommand("forwards", 0)});
 
-        $("#Backwards").on("mousedown", function(e){e.preventDefault();sendCommand("backwards", 1)});
-        $("#Backwards").on("mouseup", function(e){e.preventDefault();sendCommand("backwards", 0)});
+        $("#Backwards").bind("touchstart mousedown", function(e){e.preventDefault();sendCommand("backwards", 1)});
+        $("#Backwards").bind("touchend mouseup", function(e){e.preventDefault();sendCommand("backwards", 0)});
 
-        $("#Left").on("mousedown", function(e){e.preventDefault();sendCommand("left", 1)});
-        $("#Left").on("mouseup", function(e){e.preventDefault();sendCommand("left", 0)});
+        $("#Left").bind("touchstart mousedown", function(e){e.preventDefault();sendCommand("left", 1)});
+        $("#Left").bind("touchend mouseup", function(e){e.preventDefault();sendCommand("left", 0)});
 
-        $("#Right").on("mousedown", function(e){e.preventDefault();sendCommand("right", 1)});
-        $("#Right").on("mouseup", function(e){e.preventDefault();sendCommand("right", 0)});
+        $("#Right").bind("touchstart mousedown", function(e){e.preventDefault();sendCommand("right", 1)});
+        $("#Right").bind("touchend mouseup", function(e){e.preventDefault();sendCommand("right", 0)});
     </script>
 {% endblock %}

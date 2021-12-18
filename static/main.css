@@ -1,4 +1,6 @@
+ /*
 #main{
+   
     color: white;
     background-image: url("back.gif");
     background-repeat: no-repeat;
@@ -13,3 +15,7 @@
     list-style-type: none;
 }
 
+*/
+#par > * > * {
+    margin: 2px;
+}

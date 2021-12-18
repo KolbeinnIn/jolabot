@@ -1,9 +1,47 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div>
-        <h4>Gleðileg jól</h4>
-        <h5>Kveðja</h5>
-        <h5>Fjallalind 19</h5>
+    <div class="d-flex flex-column text-center" style="margin:0 auto">
+        <p>Velkomin/n á social distancing róbotinn</p>
+        <!--
+            <img src="http://157.157.36.121:42069/stream.mjpg">
+        -->
+        <img src="https://visafoto.com/img/docs/bs_passport_480x640.jpg" height="500", width="100%" style="object-fit:contain">
+        <div id="par">
+            <div class="row justify-content-center">
+                <button type="button" class="btn btn-outline-primary bg-light btn-lg" id="Forwards"><i class="fas fa-angle-up"></i></button>
+            </div>
+            <div class="row justify-content-center">
+                <button type="button" class="btn btn-outline-primary bg-light btn-lg" id="Left"><i class="fas fa-angle-left"></i></button>
+                <button type="button" class="btn btn-outline-primary bg-light btn-lg" id="Right"><i class="fas fa-angle-right"></i></button>
+            </div>
+            <div class="row justify-content-center">
+                <button type="button" class="btn btn-outline-primary bg-light btn-lg" id="Backwards"><i class="fas fa-angle-down"></i></button>
+            </div>
+        </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function sendCommand(direction, comm){
+            $.ajax({
+                type: "POST",
+                url: "http://157.157.36.121:42069/"+direction,
+                data: JSON.stringify({ "command": comm }),
+            });
+        }
+        $("#Forwards").mousedown(function(){sendCommand("forwards", 1)});
+        $("#Forwards").mouseup(function(){sendCommand("forwards", 0)});
+
+        $("#Backwards").mousedown(function(){sendCommand("backwards", 1)});
+        $("#Backwards").mouseup(function(){sendCommand("backwards", 0)});
+
+        $("#Left").mousedown(function(){sendCommand("left", 1)});
+        $("#Left").mouseup(function(){sendCommand("left", 0)});
+
+        $("#Right").mousedown(function(){sendCommand("right", 1)});
+        $("#Right").mouseup(function(){sendCommand("right", 0)});
+
+    </script>
 {% endblock %}

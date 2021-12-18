@@ -37,16 +37,17 @@
             event.stopImmediatePropagation();
             return false;
         };
-        $("#Forwards").mousedown(function(e){e.preventDefault();("forwards", 1)});
-        $("#Forwards").mouseup(function(e){e.preventDefault();sendCommand("forwards", 0)});
+        
+        $("#Forwards").on("mousedown", function(e){e.preventDefault();sendCommand("forwards", 1)});
+        $("#Forwards").on("mouseup", function(e){e.preventDefault();sendCommand("forwards", 0)});
 
-        $("#Backwards").mousedown(function(e){e.preventDefault();sendCommand("backwards", 1)});
-        $("#Backwards").mouseup(function(e){e.preventDefault();sendCommand("backwards", 0)});
+        $("#Backwards").on("mousedown", function(e){e.preventDefault();sendCommand("backwards", 1)});
+        $("#Backwards").on("mouseup", function(e){e.preventDefault();sendCommand("backwards", 0)});
 
-        $("#Left").mousedown(function(e){e.preventDefault();sendCommand("left", 1)});
-        $("#Left").mouseup(function(e){e.preventDefault();sendCommand("left", 0)});
+        $("#Left").on("mousedown", function(e){e.preventDefault();sendCommand("left", 1)});
+        $("#Left").on("mouseup", function(e){e.preventDefault();sendCommand("left", 0)});
 
-        $("#Right").mousedown(function(e){e.preventDefault();sendCommand("right", 1)});
-        $("#Right").mouseup(function(e){e.preventDefault();sendCommand("right", 0)});
+        $("#Right").on("mousedown", function(e){e.preventDefault();sendCommand("right", 1)});
+        $("#Right").on("mouseup", function(e){e.preventDefault();sendCommand("right", 0)});
     </script>
 {% endblock %}

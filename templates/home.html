@@ -37,9 +37,9 @@
             event.stopImmediatePropagation();
             return false;
         };
-        
-        $("#Forwards").on("mousedown", function(e){e.preventDefault();sendCommand("forwards", 1)});
-        $("#Forwards").on("mouseup", function(e){e.preventDefault();sendCommand("forwards", 0)});
+
+        $("#Forwards").bind("touchstart", function(e){e.preventDefault();sendCommand("forwards", 1)});
+        $("#Forwards").bind("touchend", function(e){e.preventDefault();sendCommand("forwards", 0)});
 
         $("#Backwards").on("mousedown", function(e){e.preventDefault();sendCommand("backwards", 1)});
         $("#Backwards").on("mouseup", function(e){e.preventDefault();sendCommand("backwards", 0)});

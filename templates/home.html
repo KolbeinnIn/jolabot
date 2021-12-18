@@ -9,14 +9,14 @@
         -->
         <div id="par">
             <div class="row justify-content-center">
-                <button id="Forwards"><i class="fas fa-angle-up"></i></button>
+                <div class="arrow" id="Forwards"><i class="fas fa-angle-up"></i></div>
             </div>
             <div class="row justify-content-center">
-                <button id="Left"><i class="fas fa-angle-left"></i></button>
-                <button id="Right"><i class="fas fa-angle-right"></i></button>
+                <div class="arrow" id="Left"><i class="fas fa-angle-left"></i></div>
+                <div class="arrow" id="Right"><i class="fas fa-angle-right"></i></div>
             </div>
             <div class="row justify-content-center">
-                <button id="Backwards"><i class="fas fa-angle-down"></i></button>
+                <div class="arrow" id="Backwards"><i class="fas fa-angle-down"></i></div>
             </div>
         </div>
     </div>
@@ -42,6 +42,12 @@
 
         $("#Right").mousedown(function(){sendCommand("right", 1)});
         $("#Right").mouseup(function(){sendCommand("right", 0)});
+        $(".arrow").oncontextmenu = function(event) {
+            event.preventDefault();
+            event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
+            event.stopImmediatePropagation();
+            return false;
+        };
 
     </script>
 {% endblock %}
